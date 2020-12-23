@@ -1,0 +1,8 @@
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+add_executable(camera main.cpp Camera.cpp CameraWidget.cpp)
+target_link_libraries(camera Qt5Core Qt5Gui Qt5Widgets)
+install(TARGETS camera DESTINATION bin)
+configure_file(ch.lindev.camera.desktop.cmake ch.lindev.camera.desktop @ONLY)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/ch.lindev.camera.desktop" DESTINATION share/applications)
+install(FILES ch.lindev.camera.svg DESTINATION share/icons/hicolor/scalable/apps)
