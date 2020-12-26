@@ -3,6 +3,7 @@
 // master branch as of 2020/12/26, 00:16:30 CET
 // Local modifications:
 // * Adapt coding style
+// * Add workaround for way too small image
 //
 #include "MpvWidget.h"
 #include <stdexcept>
@@ -81,7 +82,9 @@ void MpvWidget::initializeGL()
 
 void MpvWidget::paintGL()
 {
-	mpv_opengl_fbo mpfbo{static_cast<int>(defaultFramebufferObject()), width(), height(), 0};
+	// FIXME the *2 here is clearly wrong, but seems to actually scale the image to
+	// a better size in the particular case of the PinePhone camera input
+	mpv_opengl_fbo mpfbo{static_cast<int>(defaultFramebufferObject()), width()*2, height()*2, 0};
 	int flip_y{1};
 
 	mpv_render_param params[] = {
