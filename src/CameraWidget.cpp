@@ -6,7 +6,7 @@
 #include <QFile>
 
 CameraWidget::CameraWidget(QWidget *parent):QWidget(parent),_layout(this),_usingFrontCamera(false) {
-	_video=new MpvWidget(parent);
+	_video=new MpvWidget(this);
 	_layout.addWidget(_video, 0, 0, 1, 2);
 	_switch=new QPushButton(tr("Switch"), this);
 	_layout.addWidget(_switch, 1, 0);
