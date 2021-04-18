@@ -1,6 +1,6 @@
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-add_executable(camera main.cpp Camera.cpp CameraWidget.cpp MpvWidget.cpp)
+add_executable(camera main.cpp Camera.cpp BackgroundWidget.cpp TopLevelButton.cpp)
 target_link_libraries(camera Qt5Core Qt5Gui Qt5Widgets Qt5OpenGL mpv)
 install(TARGETS camera DESTINATION bin)
 configure_file(ch.lindev.camera.desktop.cmake ch.lindev.camera.desktop @ONLY)
